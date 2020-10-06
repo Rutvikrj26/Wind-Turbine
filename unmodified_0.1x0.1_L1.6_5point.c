@@ -222,25 +222,6 @@ real sd[] = {0.2,0.1};
     real x_vel = C_U(c,t);
     real y_vel = C_V(c,t);
 
-/*
-    if (x_vel > 10)
-    {
-        u = 10;
-    }
-    else
-    {
-        u = x_vel;
-    }
-
-    if (y_vel > 10)
-    {
-        v = 10;
-    }
-    else
-    {
-        v = x_vel;
-    }
-*/    
     real u = x_vel;
     real v = y_vel;
 
@@ -249,12 +230,6 @@ real sd[] = {0.2,0.1};
 
     real x_vel_last = C_U_M1(c,t);
     real y_vel_last = C_V_M1(c,t);
-        
-/*    if (time == 0)
-    {
-        x_vel_last = 0;
-        y_vel_last = 0;
-    }  */   
      
     real u_last = x_vel_last;
     real v_last = y_vel_last;
@@ -270,11 +245,10 @@ real sd[] = {0.2,0.1};
     real act_y_tip [3];
     real act_x_mid [3];
     real act_y_mid [3];
+    real act_x_mid2 [3];
+    real act_y_mid2 [3];
     real act_x_end [3];
     real act_y_end [3]; 
-
-//    real act_z = 0;
-//    real cellid[3];
 
     rot_vel = w(lambda_inf);
 
@@ -284,8 +258,8 @@ real sd[] = {0.2,0.1};
         last_theta[i] = theta_inst(rot_vel,last_time) + i*(2*3.14/wings);
         act_x[i] = x_new(radius, act_theta[i]);
         act_y[i] = y_new(radius, act_theta[i]);
-        act_x[i] = x_new_mid2(radius, act_theta[i]);
-        act_y[i] = y_new_mid2(radius, act_theta[i]);
+        act_x_mid2[i] = x_new_mid2(radius, act_theta[i]);
+        act_y_mid2[i] = y_new_mid2(radius, act_theta[i]);
         act_x_tip[i] = x_new_tip(radius, act_theta[i]);
         act_y_tip[i] = y_new_tip(radius, act_theta[i]);
         act_x_mid[i] = x_new_mid(radius, act_theta[i]);
@@ -1313,6 +1287,8 @@ real sd[] = {0.2,0.1};
     real act_y_tip [3];
     real act_x_mid [3];
     real act_y_mid [3];    
+    real act_x_mid2 [3];
+    real act_y_mid2 [3];
     real act_x_end [3];
     real act_y_end [3];
 
@@ -1328,6 +1304,8 @@ real sd[] = {0.2,0.1};
         act_y_tip[i] = y_new_tip(radius, act_theta[i]);
         act_x_mid[i] = x_new_mid(radius, act_theta[i]);
         act_y_mid[i] = y_new_mid(radius, act_theta[i]);
+        act_x_mid2[i] = x_new_mid2(radius, act_theta[i]);
+        act_y_mid2[i] = y_new_mid2(radius, act_theta[i]);
         act_x_end[i] = x_new_end(radius, act_theta[i]);
         act_y_end[i] = y_new_end(radius, act_theta[i]);
     }
